@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>vCard Viewer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="vCard Viewer">
+    <meta name="keywords" content="vCard">
+    <meta name="author" content="Neel Gondalia">
+    <!-- Load jquery, bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="./assets/vc.png">
+    <!-- Custom CSS End -->
+</head>
+
+<body>
+    <div class="modal fade" id="uploadModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="vCardUploadForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Upload vCard File</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="custom-file">
+                            <input type="file" accept=".vcard,.vcf" class="custom-file-input" id="uploadFileChooser"
+                                required>
+                            <label class="custom-file-label" for="customFile" id="fileLabel">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn-sm btn-info" id="uploadFile" value="Upload">
+                        <button type="button" class="btn-sm btn-danger" data-dismiss="modal" id="closemodal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+
+        <div class="wrapper">
+            <!--Wrapper Title Panel -->
+            <div class="card-header wrapperTitle">
+                <div class="title-span">
+                    <span>
+                        <img id="logo" src="./assets/logo.png">
+                        <span class="title-span-vcard">VCARD</span><span class="title-span-viewer">VIEWER</span>
+                    </span>
+                </div>
+            </div>
+
+            <div>
+                <!--Status Log Panel -->
+                <div class="card statusCard">
+                    <div class="card-header statusCardHeader"><span class="statusTitle">Status Log</span>
+                        <div class="btn btn-outline-light float-right" id="statusPanelClearBtn">Clear</div>
+                    </div>
+                    <div id="statusLog" class="card-body">
+                    </div>
+                </div>
+
+                <!--File View Panel-->
+                <div class="card fileViewCard">
+                    <div class="card-header fileViewHeader"><span class="fileLogTitle">File Log</span>
+                        <div data-toggle="modal" data-target="#uploadModal" class="btn btn-outline-light float-right"
+                            id="fileLogPanelUploadBtn">Upload
+                            File</div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped text-center table-bordered header-fixed">
+                            <thead class="tableHeaders">
+                                <tr>
+                                    <th scope="col">File Name (click to download)</th>
+                                    <th scope="col">Individual's Name</th>
+                                    <th scope="col">Additional Properties</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fileLogTable">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!--Card View Panel-->
+                <div class="card cardViewCard">
+                    <div class="card-header cardViewHeader"><span class="cardViewTitle">Card View</span>
+                        <select class="custom-select float-right" autocomplete="off" id="fileSelectDropdown">
+                        </select>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped text-center table-bordered">
+                            <thead class="tableHeaders">
+                                <tr>
+                                    <th scope="col">Property #</th>
+                                    <th scope="col">Group</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Values</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cardViewTable">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+<section>
+    <footer class="page-footer font-small unique-color-dark pt-3">
+        <div class="container footer-container">
+            <ul class="list-unstyled list-inline text-center py-0">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">To learn more about vCards</h5>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://tools.ietf.org/html/rfc6350" class="btn btn-sm btn-outline-info">Click here!</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-copyright text-center py-2">Copyright © 2018 Neel Gondalia. All Right Reserved</div>
+    </footer>
+</section>
+
+</html>

@@ -1,0 +1,39 @@
+##############################################
+## 	Name: Neel Gondalia
+## 	Student ID: 0940429
+##  Email: ngondali@uoguelph.ca
+##############################################
+
+************************************
+			INTRODUCTION
+************************************
+This is a parser written in C for vcard file format. However, this parser handles a simplified version of vcard files.
+These simplified specs are provided in A1 module 1 and A1 module 2 documents.
+
+
+************************************
+  BUILDING THE STATIC LIBRARIES
+************************************
+* Prereqs: place linkedlistAPI.h and VCardParser.h header files in the assign1/include directory
+
+1) make / make all
+	creates the static libraries libllist.a and libcparse.a
+2) make list
+	creates the static library libllist.a
+3) make parser
+	creates the static libraries libcparse.a
+4) make clean
+	removes all the objects and libraries in the assign1/bin directory
+
+
+************************************
+  LIMITATIONS AND ASSUMPTIONS
+************************************
+1) ALL THE ESCAPE CHARACTERS ARE HANDLED WHEN CREATING AND WRITING. 
+
+
+************************************
+			CITATIONS
+************************************
+LinkedListADT.c was created in A0. A lot of the function definitions were already implemented in the source
+file provided by the prof, i just had to implement createiterator, nextelement and clearlist functions.
