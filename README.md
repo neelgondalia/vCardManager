@@ -1,8 +1,5 @@
-# CIS*2750 Assignment 3 - Stub
+# vCard Manager
 
-For this assignment, and web development in general you will need to exercise your "google-fu", your skill in using a search engine to find answers to problems.
-
-You do not need to do much backend coding at all for Module 1. app.js should just contain hard coded response values.
 
 ## Installation of Node App
 
