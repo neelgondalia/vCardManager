@@ -51,14 +51,6 @@ You will need to add functionality to app.js, index.html, index.js and, if you w
 ### Public Files, HTML, CSS, JavaScript
 
 * These make up the "frontend", files that are directly accessed by users. They can see the source code
-* To view these files from your browser, right click on something on the webpage and click "inspect element" to open your browsers "dev tools"
-* Common tabs in the dev tools are:
-    * Console: Displays errors, you can run JavaScript, see console.log() output
-    * Inspector: See the current state of HTML on the webpage. HTML can be manipulated by JavaScript, it can update often. You can see the "raw" HTML returned from your server by right clicking the webpage and clicking "View Page Source"
-    * Network: This Tab is important. It shows all your network requests, (fetching HTML, CSS, JavaScript files, and AJAX requests)
-         * When you "refresh" the page, most browsers do a "soft" refresh, meaning that some assets are fetched from your "browser cache" and not directly updated. To "hard" refresh type Ctrl+Shift+R or Ctrl+Shift+F5
-
-https://developer.mozilla.org/en-US/docs/Tools
 
 #### HTML
 
